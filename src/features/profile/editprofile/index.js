@@ -9,12 +9,14 @@ const EditProfileScreen=({navigation})=>{
     const [name, setName] = useState(profile?.name);
     const [email, setEmail] = useState(profile?.email);
     const [title, setTitle] = useState(profile?.title);
+    const [description, setDescription] = useState(profile?.description);
     const dispatch = useDispatch()
     const handleProfileDetails=()=>{
         const obj={};
         obj.name=name;
         obj.email=email;
-        obj.title=title
+        obj.title=title;
+        obj.description=description
         dispatch(changeProfile(obj))
         navigation.goBack(0)
 
@@ -49,6 +51,17 @@ const EditProfileScreen=({navigation})=>{
                     underlineColorAndroid="transparent"
                     onChangeText={text => setTitle(text)}
                     value={title}
+                />
+            </View>
+            <View style={styles.inputContainer}>
+                <TextInput
+                    style={styles.inputs}
+                    multiline={true}
+                    placeholder="Description"
+                    keyboardType="default"
+                    underlineColorAndroid="transparent"
+                    onChangeText={text => setDescription(text)}
+                    value={description}
                 />
             </View>
             <View style={styles.bodyContent}>
