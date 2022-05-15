@@ -1,9 +1,12 @@
 import React, {useEffect} from 'react'
-import { useSelector, useDispatch } from 'react-redux'
+import { useSelector} from 'react-redux'
 import {StyleSheet, Text, TouchableOpacity, View} from "react-native";
-
 const MyProfileScreen=({navigation})=>{
+
+
+
     const profile = useSelector((state) => state.profile.details)
+
     return(
         <View style={styles.container}>
             <View style={styles.header}>
@@ -11,7 +14,7 @@ const MyProfileScreen=({navigation})=>{
                 <Text style={styles.name}>{profile?.name}</Text>
                 <Text style={styles.name}>{profile?.email}</Text>
                 <Text style={styles.info}>{profile?.title}</Text>
-                <Text style={styles.description}>{profile?.description}</Text>
+                <Text style={styles.description}>{profile?.company}</Text>
                 </View>
             </View>
                 <View style={styles.bodyContent}>

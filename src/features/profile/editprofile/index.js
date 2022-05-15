@@ -1,6 +1,6 @@
-import React, {useEffect, useState} from 'react'
+import React, { useState} from 'react'
 import { useSelector, useDispatch } from 'react-redux'
-import {StyleSheet, Text, TextInput, TouchableHighlight, TouchableOpacity, View} from "react-native";
+import {StyleSheet, Text, TextInput, TouchableOpacity, View} from "react-native";
 import {changeProfile} from "../profileSlice";
 
 const EditProfileScreen=({navigation})=>{
@@ -9,14 +9,14 @@ const EditProfileScreen=({navigation})=>{
     const [name, setName] = useState(profile?.name);
     const [email, setEmail] = useState(profile?.email);
     const [title, setTitle] = useState(profile?.title);
-    const [description, setDescription] = useState(profile?.description);
+    const [company, setCompany] = useState(profile?.company);
     const dispatch = useDispatch()
     const handleProfileDetails=()=>{
         const obj={};
         obj.name=name;
         obj.email=email;
         obj.title=title;
-        obj.description=description
+        obj.company=company
         dispatch(changeProfile(obj))
         navigation.goBack(0)
 
@@ -57,11 +57,11 @@ const EditProfileScreen=({navigation})=>{
                 <TextInput
                     style={styles.inputs}
                     multiline={true}
-                    placeholder="Description"
+                    placeholder="Company"
                     keyboardType="default"
                     underlineColorAndroid="transparent"
-                    onChangeText={text => setDescription(text)}
-                    value={description}
+                    onChangeText={text => setCompany(text)}
+                    value={company}
                 />
             </View>
             <View style={styles.bodyContent}>
