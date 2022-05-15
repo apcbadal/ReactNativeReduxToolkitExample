@@ -1,20 +1,9 @@
 import React, {useEffect} from 'react'
 import { useSelector, useDispatch } from 'react-redux'
 import {StyleSheet, Text, TouchableOpacity, View} from "react-native";
-import {changeProfile} from "../profileSlice";
-import AsyncStorage from "@react-native-async-storage/async-storage";
 
 const MyProfileScreen=({navigation})=>{
     const profile = useSelector((state) => state.profile.details)
-    const dispatch = useDispatch()
-    const handleProfileDetails=()=>{
-        navigation.navigate("EditProfile")
-        /*const obj={};
-        obj.name="Anshu";
-        obj.email="apcbadal@gmail.com"
-        dispatch(changeProfile(obj))*/
-
-}
     return(
         <View style={styles.container}>
             <View style={styles.header}>
@@ -27,7 +16,7 @@ const MyProfileScreen=({navigation})=>{
             </View>
                 <View style={styles.bodyContent}>
 
-                    <TouchableOpacity onPress={handleProfileDetails} style={styles.buttonContainer}>
+                    <TouchableOpacity onPress={()=>navigation.navigate("EditProfile")} style={styles.buttonContainer}>
                         <Text>Edit Profile</Text>
                     </TouchableOpacity>
             </View>
